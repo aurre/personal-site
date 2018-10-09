@@ -1,11 +1,19 @@
-sudo:          false
-language:      node_js
+sudo: false
+language: node_js
 node_js:
-  - "node"
-install:       npm install
+  - 'node'
+install: npm install
 script:
   - npm test
   - gulp
 cache:
   directories:
     - node_modules
+
+before_deploy:
+  - rm -rf node_modules # omit from the tarball, since we skip cleanup
+
+deploy:
+  skip_cleanup: true # prevents travis from deleting the build
+  provider: heroku
+  app: aurrecochea # see README
