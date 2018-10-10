@@ -17,3 +17,6 @@ deploy:
   skip_cleanup: true # prevents travis from deleting the build
   provider: heroku
   app: aurrecochea # see README
+
+  api_key:
+    secure: ukDHL5_HOnV8xQTNirUqDA
